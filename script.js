@@ -18,11 +18,6 @@ function generatePassword() {
  
 }
 
-if(passwordlength>=8 || passwordlength<=128) {
- //if password does not satisfy the 8 character length then Prompt- "Password length must be at least 8 characters." Return- back//
-
-}
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
@@ -40,4 +35,7 @@ var minimumLength = "";
 var minimumUpperCase = "";
 var minimumLowerCase = "";
 var minimumCharacters = "";
+
+//Functions//
+
 
