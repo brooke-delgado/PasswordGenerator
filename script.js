@@ -114,5 +114,23 @@ function generatePassword() {
   }
 }
 
+//Generate randomness
+
+function getRandomlowerCase() {
+  return lowerCase[Math.floor(math.random() * lowerCase.length)];
+}
+
+function getRandomupperCase() {
+  return upperCases[math.floor(math.random() * upperCases.length)];
+}
+
+function getRandomnumbers() {
+  return upperCases[math.floor(math.random() * numbers.length)];
+}
+
+function getcharacters() {
+  return characters[math.floor(math.random() * characters.length)];
+}
+
 //Add event to generate button//
 generateBtn.addEventListener("click", writePassword);
