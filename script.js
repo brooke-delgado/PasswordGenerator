@@ -73,42 +73,37 @@ generateBtn.addEventListener("click", writePassword);
 //Prompts that pop up after Generate Password button is clicked//
 function generatePassword() {
   var passwordLength = prompt(
-    "Please enter number of characters you want your new password to be. It must be between 8 and 128 characters in length"
+    "Please enter number of characters you want your new password to be. It must be between 8 and 128 characters"
   );
   console.log(passwordLength);
-  if (passwordLength < 8) {
+  if (passwordLength < 8 || passwordLength > 128) {
     alert("Please choose a password between 8 and 128");
-    return;
+    console.log(passwordLength);
+
+    if (passwordLength > 8 && passwordLength < 128)
+      alert("Password can not have more than 128 characters");
   }
 
   for (var i = 0; i < passwordLength; i++) {
     console.log(i);
   }
 
-  var upperCases = confirm(
-    "Would you like to use uppercases in your password?"
-  );
-
+  var upperCases = prompt("Would you like to use uppercases in your password?");
   if (upperCases === true) {
     console.log(upperCases);
   }
 
-  var lowerCases = confirm(
-    "Would you like to use lowercases in your password?"
-  );
-
+  var lowerCases = prompt("Would you like to use lowercases in your password?");
   if (lowerCases === true) {
     console.log(lowerCases);
   }
 
-  var numbers = confirm("Would you like to use numbers in your password?");
+  var numbers = prompt("Would you like to use numbers in your password?");
   if (numbers === true) {
     console.log(numbers);
   }
 
-  var characters = confirm(
-    "Would you like to use characters in your password?"
-  );
+  var characters = prompt("Would you like to use characters in your password?");
   if (characters === true) {
     console.log(characters);
   }
