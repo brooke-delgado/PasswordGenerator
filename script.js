@@ -28,7 +28,7 @@ var lowerCase = [
   "y",
   "z",
 ];
-var upperCases = [
+var upperCase = [
   "A",
   "B",
   "C",
@@ -58,6 +58,7 @@ var upperCases = [
 ];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var characters = ["~!@#$%^&*()-_+="];
+var selections = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -78,54 +79,41 @@ function generatePassword() {
   console.log(passwordLength);
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Please choose a password between 8 and 128");
-    console.log(passwordLength);
-
-    if (passwordLength > 8 && passwordLength < 128)
-      alert("Password can not have more than 128 characters");
+    generatePassword();
+    return;
   }
 
+  var choiceUpper = confirm(
+    "Would you like to use uppercases in your password?"
+  );
+
+  var choiceLower = confirm(
+    "Would you like to use lowercases in your password?"
+  );
+
+  var choiceNumber = confirm("Would you like to use numbers in your password?");
+
+  var choiceSpecial = confirm(
+    "Would you like to use special characters in your password?"
+  );
+
+  //create array of all possible characters, users choices
+  //create empty array to store all possible character choices
+  //concat all users choices
+  var choices = [];
+
+ //concat upper cases to empty choices
+  if (choiceUpper) {
+  choices = choices.concat(upperCase);
+  }
+
+  if (choiceLower) var NewrandomPassword = [];
+  
   for (var i = 0; i < passwordLength; i++) {
-    console.log(i);
+    var allSelections = choices[Math.floor(Math.random() * choices.length)];
+    NewrandomPassword.push(allSelections);
   }
-
-  var upperCases = prompt("Would you like to use uppercases in your password?");
-  if (upperCases === true) {
-    console.log(upperCases);
-  }
-
-  var lowerCases = prompt("Would you like to use lowercases in your password?");
-  if (lowerCases === true) {
-    console.log(lowerCases);
-  }
-
-  var numbers = prompt("Would you like to use numbers in your password?");
-  if (numbers === true) {
-    console.log(numbers);
-  }
-
-  var characters = prompt("Would you like to use characters in your password?");
-  if (characters === true) {
-    console.log(characters);
-  }
+  return NewrandomPassword.join("");
 }
 
-//Generate randomness
-
-function getRandomlowerCase() {
-  return lowerCase[Math.floor(math.random() * lowerCase.length)];
-}
-
-function getRandomupperCase() {
-  return upperCases[math.floor(math.random() * upperCases.length)];
-}
-
-function getRandomnumbers() {
-  return upperCases[math.floor(math.random() * numbers.length)];
-}
-
-function getcharacters() {
-  return characters[math.floor(math.random() * characters.length)];
-}
-
-//Add event to generate button//
 generateBtn.addEventListener("click", writePassword);
