@@ -102,13 +102,25 @@ function generatePassword() {
   //concat all users choices
   var choices = [];
 
- //concat upper cases to empty choices
+  //concat upper cases to empty choices
   if (choiceUpper) {
-  choices = choices.concat(upperCase);
+    choices = choices.concat(upperCase);
+  }
+  if (choiceLower) {
+    choices = choices.concat(lowerCase);
+  }
+  if (choiceNumber) {
+    choices = choices.concat(numbers);
+  }
+  if (choiceSpecial) {
+    choices = choices.concat(characters);
   }
 
   if (choiceLower) var NewrandomPassword = [];
-  
+  if (choiceUpper) var NewrandomPassword = [];
+  if (choiceNumber) var NewrandomPassword = [];
+  if (choiceSpecial) var NewrandomPassword = [];
+
   for (var i = 0; i < passwordLength; i++) {
     var allSelections = choices[Math.floor(Math.random() * choices.length)];
     NewrandomPassword.push(allSelections);
